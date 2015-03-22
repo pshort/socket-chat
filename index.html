@@ -35,7 +35,7 @@
 			});
             socket.on('chat message', function(msg) {
                 var d = new Date();
-				$('#messages').append($('<li>').text('[' + d.getHours() + ":" + d.getMinutes() + ':' + d.getSeconds() + '] : ' + msg));
+				$('#messages').append($('<li>').text('[' + d.toLocaleTimeString()+ '] : ' + msg));
 			});
 		</script>
 	</body>
