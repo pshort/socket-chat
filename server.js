@@ -7,16 +7,16 @@ app.get('/', function(req, res) {
 });
 
 io.on('connection', function(socket) {
-	console.log('user connected');
 
 	socket.on('chat message', function(msg){
+<<<<<<< HEAD
 		console.log(' - ' + msg);
 		io.emit('chat message', msg);
+=======
+		socket.emit('chat message', msg);
+>>>>>>> 233a7b1a8632a0fa5877f8ce2d35c2f05b744a8c
 	});
 
-	socket.on('disconnect', function() {
-		console.log('user disconnected');
-	});
 });
 
 http.listen(3000, function() {
