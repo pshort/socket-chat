@@ -9,9 +9,8 @@
 			form { background: #444; padding: 3px; position: fixed; bottom: 0; width: 100%; }
 			form input { border: 0; padding: 10px; width: 90%; margin-right: .5% }
 			form button { width: 9%; background: #eee; border: none; padding: 0.7em; }
-			#messages {list-style-type: none; margin:0; padding: 0; }
-			#messages li { padding: 5px 10px; }
-            #messages li:nth-child(odd) { background: #eee; }
+			#messages {list-style-type: none; margin:0; padding: 1em; }
+			#messages li { padding: 4px; }
             .header { padding: 0.7em; border-bottom:1px solid #444; background-color: #eee; }
             .header h1 { font-size: 1.1em; }
 		</style>
@@ -34,8 +33,9 @@
 				$('#m').val('');
 				return false;
 			});
-			socket.on('chat message', function(msg) {
-				$('#messages').append($('<li>').text(msg));
+            socket.on('chat message', function(msg) {
+                var d = new Date();
+				$('#messages').append($('<li>').text('[' + d.getHours() + ":" + d.getMinutes() + ':' + d.getSeconds() + '] : ' + msg));
 			});
 		</script>
 	</body>
